@@ -34,7 +34,7 @@ pt-function Hide-Console {$consolePtr = [Console.Window]::GetConsoleWindow();
 pt-[Console.Window]::ShowWindow($consolePtr, 0)};
 ps-RETURN
 ra-
-pt-$ports = Get-WMIObject Win32_SerialPort| Where-Object PNPDeviceID -eq "USB\VID_2341&PID_8057&MI_01\7&6159C51&0&0001"| Select-Object -ExpandProperty DeviceID;
+pt-$ports = Get-WMIObject Win32_SerialPort| Where-Object PNPDeviceID -like "USB\VID_2341&PID_8057&MI_01*"| Select-Object -ExpandProperty DeviceID;
 ps-RETURN
 ra-
 pt-$port= new-Object System.IO.Ports.SerialPort $ports,115200,None,8,one;
